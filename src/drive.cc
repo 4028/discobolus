@@ -20,7 +20,7 @@ public:
 				SmartDashboard::PutNumber("Left Stick X", leftstick.GetX());
 				SmartDashboard::PutNumber("Left Stick Y", leftstick.GetY());
 				
-				drive.ArcadeDrive(leftstick.GetX, rightstick.GetX); // Drive using X and Y coordinates supplied by joysticks.
+				drive.ArcadeDrive(leftstick.GetX, leftstick.GetY * -1); // Drive using X and Y coordinates supplied by joysticks.
 				Wait(0.005); // Wait for motors to update.
 			}
 		}
