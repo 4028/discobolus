@@ -2,6 +2,7 @@
 #include "math.h"
 
 class ShooterDemo : public SimpleRobot {
+	RobotDrive myRobot; // Robot drive system
 	Joystick lstick; // Front wheel throttle.
 	Joystick rstick; // Rear wheel throttle.
 	Jaguar fwheel; // Front wheel.
