@@ -11,10 +11,10 @@ public:
 		rstick (2), // set rightstick to the second USB port
 		kicker(4), // set kicker motor to port 4 on jag.
 	void OperatorControl(void) {
-		bool state; // State of kicker. true means kicker is currently pushing, false means kicker is in home position.
+		bool state; // State of launcher. true means kicker is currently pushing, false means kicker is in home position.
 		
 		while (IsOperatorControl()) {
-			SmartDashboard::PutNumber("Switch", swtch.Get()) // Output 1 or 0 to SmartDashboard depending on the state of the switch.
+			SmartDashboard::PutNumber("Switch", swtch.Get()); // Output 1 or 0 to SmartDashboard depending on the state of the switch.
 			if (rstick.GetTrigger()) {
 				state = false;
 			}
