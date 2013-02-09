@@ -21,8 +21,8 @@ public:
 		
 		while (IsOperatorControl())
 		{
-			SmartDashboard:: PutNumber("Shoot wheel 1", 0.5 * (rightstick.GetThrottle() + 1));
-			SmartDashboard:: PutNumber("Shoot wheel 2", 0.5 * (leftstick.GetThrottle() + 1));
+			SmartDashboard::PutNumber("Shoot wheel 1", 0.5 * (rightstick.GetThrottle() + 1));
+			SmartDashboard::PutNumber("Shoot wheel 2", 0.5 * (leftstick.GetThrottle() + 1));
 			if (rstick.GetThrottle()) {
 				fwheel.Set(fwdir * 0.5 * (rstick.GetThrottle() + 1));
 			}
