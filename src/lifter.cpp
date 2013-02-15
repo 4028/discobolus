@@ -1,7 +1,8 @@
 void lifter() {
-		int presets[] = {4, 15, 25, 39}; // Preset angles of launcher.
-			if (rstick.GetButton != 0) {
-				switch (rstick.GetButton) {
+	int presets[] = {4, 15, 25, 39}; // Preset angles of launcher.
+		for (int b = 7; i <= 10; ++b) {
+			if (rstick.GetRawButton(b) == true) {
+				switch (b) {
 					case 7:
 						if (gyro.GetAngle > presets[0]) {
 							do
@@ -59,6 +60,7 @@ void lifter() {
 							{
 								lifterjag.Set(1.0);
 							} while (gyro.GetAngle != presets[2]);
+						}
 					break;
 
 					case 10:
@@ -78,9 +80,16 @@ void lifter() {
 							{
 								lifterjag.Set(1.0);
 							} while (gyro.GetAngle != presets[3]);
+						}
 					break;
-				}
+
+				default: 
+				break;
 			}
+		}
+
+		else {
+			// Do nothing; no buttons are pressed.
 		}
 	}
 }
