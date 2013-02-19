@@ -1,6 +1,6 @@
-mr.roboto
+Discobolus
 =========
 
-CHCA Robotics 2013 source code.
+CHCA Robotics Team (FIRST #4028) Source code for the 2013 season.
 
-#SWAG
+Code was written in C++ with WindRiver Workbench to be crosscompiled to PowerPC vxWorks. Very much subject to change.
