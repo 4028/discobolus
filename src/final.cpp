@@ -82,11 +82,11 @@ public:
 			if (rstick.GetTrigger() && !trigger_lag) {
 				// if trigger is newly pressed, initiate auto-fire
 					shot_count = 4;				// tell the shooter to shoot 4 discs
-					swtch_lag = false;			// pretend that the switch is not pressed
+					//swtch_lag = false;			// pretend that the switch is not pressed
 			} else if (rstick.GetRawButton(4) && !b4_lag) {
 				// if button 4 is newly pressed, initiate single fire
 				shot_count = 1;					// tell the shooter to shoot 1 disc
-				swtch_lag = false;				// pretend the switch is not pressed
+				//swtch_lag = false;				// pretend the switch is not pressed
 			}
 			trigger_lag = rstick.GetTrigger();	// update trigger lagger
 			b4_lag = rstick.GetRawButton(4);	// update button 4 lagger
@@ -155,11 +155,10 @@ public:
 			kicker.Set(1.0);
 
 		if (swtch.Get() && !swtch_lag) {
-		// if swtch is newly pressed
-			if (shot_count > 0)	// if there's still a shot to spend
-				shot_count--;	// decrement shot count
-			else 				// otherwise
-				kicker.Set(0);	// stop the kicker
+		// if swtch is newly pressed 
+			shot_count--;
+			if (shot_count <= 0)	// if there are no more shots to spend	
+				kicker.Set(0);		// stop the kicker
 		}
 		swtch_lag = swtch.Get();	
 
