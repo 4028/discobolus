@@ -1,23 +1,19 @@
-#include "WPILib.h"
+#include <WPILib.h>
 
-class SimpleAngle : public SimpleRobot {
-	Joystick rightstick; // Initialize joystick class for right stick.
-
-
+class AccTest : public SimpleRobot {
+	ADXL345_I2C acc;
 public:
-	SimpleAngle(void):
-	rightstick(2), // Right stick USB port.
-		void OperatorControl(void) {
-			while (IsOperatorControl) {
-				SmartDashboard::PutNumber("X Gs", ADXL345_I2C::GetAcceleration(XAxis);
-				SmartDashboard::PutNumber("Y Gs", ADXL345_I2C::GetAcceleration(YAxis));
-				SmartDashboard::PutNumber("Z Gs", ADXL345_I2C::GetAcceleration(ZAxis));
-				SmartDashboard::PutNumber("X Angle", arcsin(ADXL345_I2C::GetAcceleration(XAxis)));
-				SmartDashboard::PutNumber("Y Angle", arcsin(ADXL345_I2C::GetAcceleration(YAxis)));
-				SmartDashboard::PutNumber("Z Angle", arcsin(ADXL345_I2C::GetAcceleration(ZAxis)));
-
+	AccTest(void):
+	acc(1, ADXL345_I2C::kRange_2G)
+	{
+	}
+	void OperatorControl (void) {
+		while(IsOperatorControl()) {
+			SmartDashboard::PutNumber("X", acc.GetAcceleration(ADXL345_I2C::kAxis_X));
+			SmartDashboard::PutNumber("Y", acc.GetAcceleration(ADXL345_I2C::kAxis_Y));
+			SmartDashboard::PutNumber("Z", acc.GetAcceleration(ADXL345_I2C::kAxis_Z));
 		}
 	}
 };
 
-START_ROBOT_CLASS(SimpleAngle);
+START_ROBOT_CLASS(AccTest);
